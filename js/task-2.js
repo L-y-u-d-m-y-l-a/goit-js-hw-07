@@ -26,8 +26,9 @@ const images = [
 ];
 
 const gallery = document.querySelector('.gallery');
+const fragment = document.createDocumentFragment();
 
-const galleryItems = images.map(image => {
+images.forEach(image => {
   const li = document.createElement('li');
   li.classList.add('gallery-item');
 
@@ -37,9 +38,7 @@ const galleryItems = images.map(image => {
   img.classList.add('gallery-image');
 
   li.appendChild(img);
-  return li;
+  fragment.appendChild(li);
 });
 
-galleryItems.forEach(item => {
-  gallery.appendChild(item);
-});
+gallery.appendChild(fragment);
